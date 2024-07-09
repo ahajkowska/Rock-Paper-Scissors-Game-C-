@@ -32,5 +32,30 @@ int main() {
         opponent = rps[rand() % 3]; //rand() = generates random number
 
         cout << "Opponent chooses " << opponent << endl;
+
+        //scorekeeping
+        if (player == opponent) { //tie
+            playerScore++;
+            oppponentScore++;
+        }
+        else if (player == "rock") {
+            if (opponent == "scissors") playerScore++;
+            else if (opponent == "paper") oppponentScore++;
+        }
+        else if (player == "paper") {
+            if (opponent == "rock") playerScore++;
+            else if (opponent == "scissors") oppponentScore++;
+        }
+        else if (player == "scissors"){
+            if (opponent == "paper") playerScore++;
+            else if (opponent == "rock") oppponentScore++;
+        }
+        cout << "Player: " << playerScore << " Opponent: " << oppponentScore << endl;
     }
+
+    cout << "Player: " << playerScore << " Opponent: " << oppponentScore << endl;
+    if (playerScore > oppponentScore) cout << "Player wins!" << endl;
+    else if (playerScore < oppponentScore) cout << "Opponent wins!" << endl;
+    else cout << "Tie!" << endl;
+    
 }
